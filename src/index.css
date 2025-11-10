@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #10b981;
+  --bg-from: #000000;
+  --bg-to: #000000;
+  --particle: rgba(255,255,255,0.15);
+}
+
+html, body, #root { height: 100%; }
+body {
+  @apply text-white bg-black;
+  background-attachment: fixed;
+}
+
+.smooth-scroll { scroll-behavior: smooth; }
+
+/* particles layer */
+.particles::before, .particles::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.particles::before {
+  background-image:
+    radial-gradient(var(--particle) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0;
+  opacity: .35;
+}
+.particles::after {
+  background-image:
+    radial-gradient(var(--particle) 2px, transparent 2px);
+  background-size: 140px 140px;
+  background-position: 10px 20px;
+  opacity: .15;
+}
+
+/* utilities */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/15;
+}
